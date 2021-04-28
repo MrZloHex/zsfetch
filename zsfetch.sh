@@ -2,6 +2,12 @@
 # zsfetch simple POSIX fetch command-line script
 
 
+# getting arguments
+get_arguments() {
+	echo argumets
+}
+
+
 # making normal name of OS
 decrypt_os() {
 	case $general_os in
@@ -29,6 +35,10 @@ get_uname(){
 main() {
 	get_uname
 	decrypt_os
+
+	#get_arguments "$@"
+
+
 }
 
 main "$@"
