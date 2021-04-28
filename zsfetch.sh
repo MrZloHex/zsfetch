@@ -2,7 +2,7 @@
 # zsfetch simple POSIX fetch command-line script
 
 main() {
-	echo zsfecth	
+	echo $OSTYPE	
 }
 
 main "$@"
