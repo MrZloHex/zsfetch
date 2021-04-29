@@ -11,7 +11,7 @@ install(){
 
 uninstall() {
 	sudo rm /usr/local/bin/zsfetch
-	sudo rm /usr/local/man/man1/zsfetch.1	
+	sudo rm /usr/local/man/man1/zsfetch.1.gz
 }
 
 main() {
