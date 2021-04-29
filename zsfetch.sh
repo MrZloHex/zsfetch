@@ -1,9 +1,7 @@
 #!/bin/bash
-#
-# pfetch - Simple POSIX sh fetch script.
 
-# Wrapper around all escape sequences used by pfetch to allow for
-# greater control over which sequences are used (if any at all).
+# zsfetch - POSIX fetch script.
+
 esc() {
     case $1 in
         CUU) e="${esc_c}[${2}A" ;; # cursor up
@@ -1654,24 +1652,23 @@ get_ascii() {
 }
 
 get_arguments() {
+	
+	# ptinting version of zsfetch
 	if [[ $1 == "--version" ]] || [[ $1 == "-v" ]]; then
 		echo "zsfetch 1.0.0"
 		exit 0
+	fi
+
+	# always hide strerr and any stdout without flag -e
+	# this makes full comtrol of what is displayed
+	if [[ $1 != "-e" ]] || [[ $1 != "--errors" ]]; then
+		exec 2> /dev/null
+		exec 6>&1 >/dev/null
 	fi
 }
 
 main() {
 	get_arguments "$@"
-
-    # Hide 'stderr' unless the first argument is '-v'. This saves
-    # polluting the script with '2>/dev/null'.
-    [ "$1" = -v ] || {
-        exec 2>/dev/null
-    }
-
-    # Hide 'stdout' and selectively print to it using '>&6'.
-    # This gives full control over what it displayed on the screen.
-    exec 6>&1 >/dev/null
 
     # Store raw escape sequence character for later reuse.
     esc_c=$(printf '\033')
@@ -1679,12 +1676,12 @@ main() {
     # Allow the user to execute their own script and modify or
     # extend pfetch's behavior.
     # shellcheck source=/dev/null
-    . "${PF_SOURCE:-/dev/null}" ||:
+    #. "${PF_SOURCE:-/dev/null}" ||:
 
     # Ensure that the 'TMPDIR' is writable as heredocs use it and
     # fail without the write permission. This was found to be the
     # case on Android where the temporary directory requires root.
-    [ -w "${TMPDIR:-/tmp}" ] || export TMPDIR=~
+    #[ -w "${TMPDIR:-/tmp}" ] || export TMPDIR=~
 
     # Generic color list.
     # Disable warning about unused variables.
