@@ -2,6 +2,7 @@
 
 install(){
 	sudo mv zsfetch /usr/local/bin
+	sudo mkdir /usr/local/man
 	sudo mkdir /usr/local/man/man1
 	sudo mv zsfetch.1 /usr/local/man/man1
 	sudo gzip /usr/local/man/man1/zsfetch.1
