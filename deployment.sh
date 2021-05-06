@@ -44,7 +44,7 @@ uninstall() {
 		sudo rm /usr/share/man/man1/zsfetch.1.gz
 
 	elif [[ $OS_TYPE == "darwin" ]] 
-	then11
+	then
 		sudo rm /usr/share/man/man1/zsfetch.1.gz
 	fi
 }
