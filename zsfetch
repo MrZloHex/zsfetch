@@ -1079,7 +1079,7 @@ get_ascii() {
 get_arguments() {
 
 	if [[ $1 == "--version" ]] || [[ $1 == "-v" ]]; then
-		echo "zsfetch 1.0.0"
+		echo "zsfetch 2.5.4"
 		exit 0
 	fi
 
