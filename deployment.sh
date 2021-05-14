@@ -36,24 +36,33 @@ uninstall() {
 	sudo rm $MAN_PATH/zsfetch.1.gz
 }
 
-main() {
+main() {	
+	exec 6>&1 >/dev/null
+	
+	if [[ "$2" == '-v' ]]
+	then
+		echo >&6 "verbose mode"	
+		exec 2>/dev/null
+	fi
+
 	get_os
+
 	case $1 in
 		"-i" | "--install") 
 			install
-			echo "DONE!!!"
+			echo >&6 "DONE!!!"
 			;;
 		"-u" | "--uninstall")
 			uninstall
-			echo "DONE!!!"
+			echo >&6 "DONE!!!"
 			;;
 		*)
-			echo "For installation run:"
-			echo "	./stall.sh -i"
-			echo "	./stall.sh --install"
-			echo "For uninstallation run:"
-			echo "	./stall.sh -u"
-			echo "	./stall.sh --uninstall"
+			echo >&6 "For installation run:"
+			echo >&6 "	./stall.sh -i"
+			echo >&6 "	./stall.sh --install"
+			echo >&6 "For uninstallation run:"
+			echo >&6 "	./stall.sh -u"
+			echo >&6 "	./stall.sh --uninstall"
 			;;
 	esac
 	
