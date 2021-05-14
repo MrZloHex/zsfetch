@@ -3,6 +3,14 @@
 MAN_PATH="/usr/local/man/man1"
 OS_TYPE="linux"
 
+load(){
+	while [ 1 ]
+	do
+		echo -ne "."
+		sleep 0.3
+	done
+}
+
 get_os(){
 	case "$OSTYPE" in 
 		darwin*)
@@ -19,6 +27,12 @@ get_os(){
 
 install(){
 	# installing program
+	
+	echo >&6 "Installing"
+
+	load &
+	PID=$!
+
 	sudo mv zsfetch /usr/local/bin
 
 	sudo mkdir $MAN_PATH
@@ -29,11 +43,24 @@ install(){
 	then
 		sudo mandb
 	fi
+
+	sleep 1
+
+	kill $PID
 }
 
 uninstall() {
+	
+	echo >&6 "Uninstalling"
+	load &
+	PID=$!
+
 	sudo rm /usr/local/bin/zsfetch
 	sudo rm $MAN_PATH/zsfetch.1.gz
+
+	sleep 1
+
+	kill $PID
 }
 
 main() {	
