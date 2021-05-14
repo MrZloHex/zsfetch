@@ -6,7 +6,7 @@ OS_TYPE="linux"
 load(){
 	while [ 1 ]
 	do
-		echo -ne "."
+		echo >&6 -ne "."
 		sleep 0.3
 	done
 }
@@ -28,7 +28,7 @@ get_os(){
 install(){
 	# installing program
 	
-	echo >&6 "Installing"
+	echo >&6 -n "Installing"
 
 	load &
 	PID=$!
@@ -51,7 +51,7 @@ install(){
 
 uninstall() {
 	
-	echo >&6 "Uninstalling"
+	echo >&6 -n  "Uninstalling"
 	load &
 	PID=$!
 
