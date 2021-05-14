@@ -39,11 +39,16 @@ uninstall() {
 main() {	
 	exec 6>&1 >/dev/null
 	
-	if [[ "$2" == '-v' ]]
+	if [[ $2 != '-v' ]]
+	then
+		exec 2>/dev/null
+	
+	elif [[ $2 == '-v' ]] 
 	then
 		echo >&6 "verbose mode"	
-		exec 2>/dev/null
 	fi
+
+
 
 	get_os
 
