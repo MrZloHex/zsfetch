@@ -45,6 +45,7 @@ install(){
 	fi
 
 	sleep 1
+	echo >&6 ""
 
 	kill $PID
 }
@@ -59,13 +60,15 @@ uninstall() {
 	sudo rm $MAN_PATH/zsfetch.1.gz
 
 	sleep 1
+	echo >&6 ""
 
 	kill $PID
 }
 
 main() {	
 	exec 6>&1 >/dev/null
-	
+	sudo ls
+
 	if [[ $2 != '-v' ]]
 	then
 		exec 2>/dev/null
