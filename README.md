@@ -47,6 +47,8 @@ All this is written in manpage
 
 ## Supporting distros
 
+|  Type   | Distros |
+| ------- | ------- |
 |  Linux  | Manjaro |
 |  MacOS  | Darwin  |
 | Windows | Windows |
