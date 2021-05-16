@@ -1,5 +1,10 @@
 #!/bin/bash
 
+######################
+#  Made by MrZloHex  #
+#     15.05.2021     #
+######################
+
 MAN_PATH="/usr/local/man/man1"
 OS_TYPE="linux"
 

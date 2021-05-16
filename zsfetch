@@ -2,6 +2,12 @@
 
 # zsfetch - POSIX fetch script.
 
+######################
+#  Made by MrZloHex  #
+#     15.05.2021     #
+######################
+
+
 esc() {
     case $1 in
         CUU) e="${esc_c}[${2}A" ;; 
