@@ -717,16 +717,6 @@ get_ascii() {
 			EOF
         ;;
 
-        ([Bb]uildroot*)
-            read_ascii 3 <<-EOF
-				${c3}   ___
-				${c3} / \`   \\
-				${c3}|   :  :|
-				${c3}-. _:__.-
-				${c3}  \` ---- \`
-			EOF
-        ;;
-
         ([Dd]ebian*)
             read_ascii 1 <<-EOF
 				${c1}  _____
