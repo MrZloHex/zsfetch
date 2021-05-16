@@ -49,6 +49,7 @@ All this is written in manpage
 
 |  Type   | Distros |
 | ------- | ------- |
-|  Linux  | Manjaro |
+|  Linux  | Manjaro </br> Arch |
+|  Unix   | FreeBSD </br> OpenBSD |
 |  MacOS  | Darwin  |
 | Windows | Windows |
