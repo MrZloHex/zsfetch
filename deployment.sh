@@ -38,10 +38,10 @@ install(){
 	load &
 	PID=$!
 
-	sudo mv zsfetch /usr/local/bin
+	sudo cp zsfetch /usr/local/bin
 
 	sudo mkdir $MAN_PATH
-	sudo mv zsfetch.1 $MAN_PATH
+	sudo cp zsfetch.1 $MAN_PATH
 	sudo gzip $MAN_PATH/zsfetch.1
 	
 	if [[ $OS_TYPE == "linux" ]]
@@ -98,11 +98,11 @@ main() {
 			;;
 		*)
 			echo >&6 "For installation run:"
-			echo >&6 "	./stall.sh -i"
-			echo >&6 "	./stall.sh --install"
+			echo >&6 "	./deployment.sh -i"
+			echo >&6 "	./deployment.sh --install"
 			echo >&6 "For uninstallation run:"
-			echo >&6 "	./stall.sh -u"
-			echo >&6 "	./stall.sh --uninstall"
+			echo >&6 "	./deployment.sh -u"
+			echo >&6 "	./deployment.sh --uninstall"
 			;;
 	esac
 	
